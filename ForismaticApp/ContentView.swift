@@ -29,7 +29,7 @@ struct ContentView: View {
     func fetchQuote() {
             
             // Set the address of the JSON endpoint
-            let url = URL(string: "     https://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en")!
+            let url = URL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en")!
 
             // Configure a URLRequest instance
             // Defines what type of request will be sent to the address noted above
