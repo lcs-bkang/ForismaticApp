@@ -13,11 +13,16 @@ struct ContentView: View {
     
     // MARK: Computed Properties
     var body: some View {
-        Text(someText)
-            .padding()
-            .onAppear() {
+        VStack {
+            Text(someText)
+                .padding()
+                .onAppear() {
+                    fetchQuote()
+                }
+            Button("Get a new quote") {
                 fetchQuote()
             }
+        }
     }
     
     // MARK: Functions
