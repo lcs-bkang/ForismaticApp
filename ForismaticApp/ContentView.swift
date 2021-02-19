@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     // MARK: Stored Properties
+    var someText = "Hello"
     
     // MARK: Computed Properties
     var body: some View {
-        
-
-        Text("Hello, world!")
+        Text(someText)
             .padding()
+            .onAppear() {
+                fetch()
+            }
     }
     
     // MARK: Functions
@@ -75,14 +76,14 @@ struct ContentView: View {
                 if let decodedQuoteData = try? JSONDecoder().decode(Forismatic.self, from: quoteData) {
 
                     // DEBUG:
-                    print("Joke data decoded from JSON successfully")
-                    print("The joke is: \(decodedQuoteData.joke)")
+                    print("Quote data decoded from JSON successfully")
+                    print("The quote is: \(decodedQuoteData.quoteText)")
 
                     // Now, update the UI on the main thread
                     DispatchQueue.main.async {
 
                         // Assign the result to the "someText" stored property
-                        someText = decodedQuoteData.joke
+                        someText = decodedQuoteData.quoteText
 
                     }
 
